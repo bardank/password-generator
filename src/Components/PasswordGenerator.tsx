@@ -53,7 +53,7 @@ const PasswordGenerator: React.FC<PasswordGeneratorProps> = ({
 
   return (
     <div className=" flex flex-col items-center p-4">
-      <div className="w-1/2">
+      <div className="md:w-1/2">
         <h1 className="text-center font-bold text-2xl  my-6">
           Password Generator
         </h1>

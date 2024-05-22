@@ -13,7 +13,7 @@ const GeneratedPassword: React.FC<GeneratedPasswordProps> = ({ passwords }) => {
 
   return (
     <div className=" flex flex-col items-center p-4">
-      <div className="w-1/2">
+      <div className="md:w-1/2">
         <div className="flex justify-center flex-col">
           <h2 className="font-bold ">Last 5 Passwords</h2>
           <ul>
