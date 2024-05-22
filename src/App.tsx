@@ -1,24 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import logo from "./logo.svg";
+import PasswordGenerator from "./Components/PasswordGenerator";
+import GeneratedPassword from "./Components/GeneratedPasswords";
+import { getLocalStorage } from "./customHooks/localStore";
 
 function App() {
+  const [passwords, setPasswords] = useState<string[]>([]);
+
+  useEffect(() => {
+    const storedPasswords = JSON.parse(getLocalStorage("passwords") || "[]");
+    if (storedPasswords) {
+      setPasswords(storedPasswords);
+    }
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-screen h-screen ">
+      <PasswordGenerator setPasswords={setPasswords} passwords={passwords} />
+      <GeneratedPassword passwords={passwords} />
     </div>
   );
 }
